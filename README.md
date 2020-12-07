@@ -1,5 +1,5 @@
-# bmi-calculator-in-react
-My version of the bmi calculator in a react app!
+# bmi-calculator-react
+My version of the bmi calculator app in react!
 
 ## How to Start
 - Clone or Download
