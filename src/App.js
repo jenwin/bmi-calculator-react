@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import UserResults from './UserResults';
-import BmiNumber from './BmiNumber';
+import UserResults from './components/UserResults';
+import BmiNumber from './components/BmiNumber';
+import BmiButton from './components/BmiButton';
+import Footer from './components/Footer';
 import {
-  Button,
   Form
 } from 'react-bootstrap';
 
@@ -45,7 +46,6 @@ class App extends Component {
 
   render() {
     const { heightFeet, heightInches, weightPounds, results } = this.state;
-    const disabled = (!heightFeet || !heightInches || !weightPounds ? true : false);
 
     return (
       <div>
@@ -103,29 +103,15 @@ class App extends Component {
               aria-label="pounds"
             />
           </Form.Group>
-
-            <Button
-              onClick={this.handleResults}
-              className="results-btn"
-              disabled={disabled}
-              size="lg">
-                <span
-                  className="results-text"
-                  tabIndex="0">
-                    Calculate
-                </span>
-            </Button>
+            <BmiButton
+              heightFeet={heightFeet}
+              heightInches={heightInches}
+              weightPounds={weightPounds}
+              handleResults={this.handleResults}
+            />
           </Form>
         </div>
-        <div>
-          <footer className="author-ftr">
-            <p
-              className="author"
-              tabIndex="0">
-                © JENNIFER NGUYEN
-            </p>
-          </footer>
-        </div>
+        <Footer />
       </div>
     );
   }
