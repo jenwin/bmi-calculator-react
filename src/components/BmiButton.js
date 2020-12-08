@@ -9,7 +9,7 @@ class BmiButton extends Component {
   }
 
   render() {
-    const { heightFeet, heightInches, weightPounds, results } = this.props;
+    const { heightFeet, heightInches, weightPounds } = this.props;
     const disabled = (!heightFeet || !heightInches || !weightPounds ? true : false);
 
     return (
