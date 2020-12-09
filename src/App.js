@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import Height from './components/Height';
+import Weight from './components/Weight';
 import UserResults from './components/UserResults';
 import BmiNumber from './components/BmiNumber';
 import BmiButton from './components/BmiButton';
@@ -22,8 +24,10 @@ class App extends Component {
 
   handleBmi = e => {
     e.preventDefault();
+    const name = e.target.name;
+    const value = e.target.value;
     this.setState({
-      [e.target.name]: e.target.value
+      [name]: value
     });
   }
 
@@ -49,66 +53,40 @@ class App extends Component {
 
     return (
       <div>
-        <p className="bmi-title" tabIndex="0" aria-label="title">BMI Calculator</p>
+        <p
+          className="bmi-title"
+          tabIndex="0"
+          aria-label="title">
+            BMI Calculator
+        </p>
         <div className="bmi-box">
           <UserResults getBmi={results} />
           <BmiNumber getBmi ={results} />
-
-          <Form onSubmit={this.handleBmi} tabIndex="0" aria-label="form">
-            <Form.Group className="bmi-label">
-              { /*get height in feet*/ }
-              <Form.Label
-                htmlFor="height-feet"
-                tabIndex="0">
-                  Height
-              </Form.Label>
-              <Form.Control
-                id="height-feet"
-                type="number"
-                name="heightFeet"
-                placeholder="Feet"
-                autoComplete="off"
-                value={this.state.heightFeet}
-                onChange={this.handleBmi}
-                aria-label="feet"
+          <Form
+            onSubmit={this.handleBmi}
+            tabIndex="0"
+            aria-label="form">
+              <Form.Group className="bmi-label">
+                { /*height in feet and inches*/ }
+                <Height
+                  heightFeet={heightFeet}
+                  heightInches={heightInches}
+                  handleBmi={this.handleBmi}
+                />
+              </Form.Group>
+              <Form.Group className="bmi-label">
+                {/*weight in pounds*/}
+                <Weight
+                  weightPounds={weightPounds}
+                  handleBmi={this.handleBmi}
+                />
+              </Form.Group>
+              <BmiButton
+                heightFeet={heightFeet}
+                heightInches={heightInches}
+                weightPounds={weightPounds}
+                handleResults={this.handleResults}
               />
-
-              { /*get height in inches*/ }
-              <Form.Control
-                id="height-inches"
-                type="number"
-                name="heightInches"
-                placeholder="Inches"
-                autoComplete="off"
-                value={this.state.heightInches}
-                onChange={this.handleBmi}
-               />
-          </Form.Group>
-
-          <Form.Group className="bmi-label">
-            { /*get weight in pounds*/ }
-            <Form.Label
-              htmlFor="weight-lbs"
-              tabIndex="0">
-                Weight
-            </Form.Label>
-            <Form.Control
-              id="weight-lbs"
-              type="number"
-              name="weightPounds"
-              placeholder="Pounds"
-              autoComplete="off"
-              value={this.state.weightPounds}
-              onChange={this.handleBmi}
-              aria-label="pounds"
-            />
-          </Form.Group>
-            <BmiButton
-              heightFeet={heightFeet}
-              heightInches={heightInches}
-              weightPounds={weightPounds}
-              handleResults={this.handleResults}
-            />
           </Form>
         </div>
         <Footer />
