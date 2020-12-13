@@ -75,7 +75,7 @@ class App extends Component {
                 />
               </Form.Group>
               <Form.Group className="bmi-label">
-                {/*weight in pounds*/}
+                { /*weight in pounds*/ }
                 <Weight
                   weightPounds={weightPounds}
                   handleBmi={this.handleBmi}

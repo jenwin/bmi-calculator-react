@@ -25,7 +25,7 @@ class Height extends Component {
           onChange={handleBmi}
           aria-label="feet"
         />
-        {/*height in inches*/}
+        { /*height in inches*/ }
         <Form.Control
           id="height-inches"
           type="number"

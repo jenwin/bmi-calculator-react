@@ -1,0 +1,34 @@
+/*mobile portrait mode*/
+@media screen
+and ( max-width: 450px)
+and ( orientation: portrait ) {
+  .bmi-box {
+    width: 100%;
+  }
+
+  .bmi-str {
+    font-size: 20px;
+  }
+}
+
+@media screen
+and ( max-width: 376px )
+and ( orientation: portrait ) {
+  .bmi-title {
+    font-size: 25px;
+    padding-top: 35px;
+  }
+}
+
+/*mobile landscape mode*/
+@media screen
+and ( max-width: 1000px )
+and ( orientation: landscape ) {
+  .bmi-box {
+    margin-top: 10px;
+  }
+
+  .bmi-title {
+    padding-top: 35px;
+  }
+}
