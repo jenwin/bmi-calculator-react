@@ -2,7 +2,7 @@
   "name": "bmi-calculator-react",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://jenwin.github.io/bmi-calculator-react",
+  "homepage": "https://jenwin.github.io/bmi-calculator-react/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
