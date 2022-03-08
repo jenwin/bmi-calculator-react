@@ -48,6 +48,13 @@ class App extends Component {
     });
   }
 
+  handleKeyDown = e => {
+    if (e.keyCode === 13) {
+      e.preventDefault();
+      this.handleResults();
+    }
+  }
+
   render() {
     const { heightFeet, heightInches, weightPounds, results } = this.state;
 
@@ -64,6 +71,7 @@ class App extends Component {
           <BmiNumber getBmi ={results} />
           <Form
             onSubmit={this.handleBmi}
+            onKeyDown={this.handleKeyDown}
             tabIndex="0"
             aria-label="form">
               <Form.Group className="bmi-label">
